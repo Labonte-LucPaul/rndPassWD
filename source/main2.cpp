@@ -1,12 +1,12 @@
 /*
   Name: rndPassWD.cpp
-  Copyright: LPL.Corporation©2006
-  Author: Luc Paul Labonté
+  Copyright: LPL.CorporationÂ©2006
+  Author: Luc Paul LabontÃ©
   Date: 21-01-06 14:38
-  Description: générer des mot de passes aléatoirement
+  Description: gÃ©nÃ©rer des mot de passes alÃ©atoirement
 
-  Modifié le 24-06-2010.
-  Ajout de la définition WIN32 pour windows, avoir le temps
+  Modifiï¿½ le 24-06-2010.
+  Ajout de la dÃ©finition WIN32 pour windows, avoir le temps
   (Sleep) fonctionne pour windows. Also a print version system
   and copyright updated.
 */
@@ -36,9 +36,9 @@ using namespace std;
 
 
 //********************************************************************
-// Nom de la procédure: GESTION_ERREUR
-// Description        : Gère les erreures d'entrée de paramètre
-// Entrés             : zeFuck
+// Nom de la procï¿½dure: GESTION_ERREUR
+// Description        : GÃ¨re les erreures d'entrÃ©e de paramÃ¨tre
+// EntrÃ©s             : zeFuck
 // Sorties            : none
 // Retour             : 0
 //********************************************************************
@@ -49,18 +49,18 @@ int GESTION_ERREUR( char ZeFuck )
       cout << "\n\n\t\t\7 *** ERREUR DE PARAMETRES!!! ***\n\n"
            << "\n\tLa syntaxe correct est: \n"
            << "\n\trndPassWD [nbChar] [l | u | n | a | -] [generated time] [sec to wait]\n"
-           << "\n\n   nbChar: Nombres de caractères du mot de passe.(0-999)\n"
+           << "\n\n   nbChar: Nombres de caractï¿½res du mot de passe.(0-999)\n"
            << "   l     : Pour LowerCase.\n"
-           << "   u     : Pour UpperCase.\n"           
+           << "   u     : Pour UpperCase.\n"
            << "   n     : Pour Nombres.\n"
-           << "   a     : Pour autres Caractères ASCII\n\n" 
+           << "   a     : Pour autres Caractï¿½res ASCII\n\n"
 	   << "   generated time : Number of password to generate\n"
 	   << "   sec to wait    : Number of sec of intervale between the password generated\n\n"
            << "NOTE: Entrez le caractere \'-\' pour indiquer "
            << "que l'option ne sera pas activee." ;
-           
+
       cout << endl << endl << "Version: " << VER << endl;
-      cout << "\nLPL.Corporation©2006 - 2010\n\n";
+      cout << "\nLPL.Corporationï¿½2006 - 2010\n\n";
 
 	return 0;
 }
@@ -68,22 +68,22 @@ int GESTION_ERREUR( char ZeFuck )
 
 
 //********************************************************************
-// Nom de la procédure: aleatoire
-// Description        : génère les caractères aléatoires
-// Entrés             : nbCaracteres, maj, min, chi, carac
+// Nom de la procÃ©dure: aleatoire
+// Description        : gÃ©nÃ¨re les caractÃ¨res alÃ©atoires
+// EntrÃ©s             : nbCaracteres, maj, min, chi, carac
 // Sorties            : none
 // Retour             : 0
 //********************************************************************
-int aleatoire( int nbCaracteres, bool maj, bool min, bool chi, 
+int aleatoire( int nbCaracteres, bool maj, bool min, bool chi,
 	      			bool carac, int zeLoop, int secSleep )
 {
     int temps = 0;
     int compteurChar = 0;
     int i;
-    int j;   
+    int j;
 
     char passWD[nbCaracteres];
-    
+
 
     if( secSleep <= 1 )
     {
@@ -91,7 +91,7 @@ int aleatoire( int nbCaracteres, bool maj, bool min, bool chi,
 		cout << "We will use 1 for now!\n";
 		secSleep = 1;
     }
-    
+
     cout << "\n\nNouveau mot de passe: \n";
 
     for( j = 0; j < zeLoop; j++ )
@@ -124,14 +124,14 @@ int aleatoire( int nbCaracteres, bool maj, bool min, bool chi,
 			 	{
 	   		     		passWD[compteurChar] = rand()%14 + 33;
 	   		     		compteurChar++;
-	             		} 	 	 
+	             		}
 	         	}
 	         	// Les majuscules
 	         	if( maj == true )
 	         	{
 		    	 	if( temps == 2 )
-	   		 	{ 	 	 
-			 		passWD[compteurChar] = rand()%26 + 65;		 
+	   		 	{
+			 		passWD[compteurChar] = rand()%26 + 65;
 			 		compteurChar++;
 			 	}
 	         	}
@@ -139,64 +139,64 @@ int aleatoire( int nbCaracteres, bool maj, bool min, bool chi,
 		   	if( min == true )
 	         	{
 		    	 	if( temps == 3 )
-	    		 	{ 	     
+	    		 	{
 	 	     	     		passWD[compteurChar] = rand()%26 + 97;
-	 	     	     		compteurChar++;	             		
+	 	     	     		compteurChar++;
 				}
-	         	}       	   
+	         	}
 
-     	 	} // fin while    
+     	 	} // fin while
 	     	// cout << "Nouveau mot de passe: \n ";
      	     	for(i=0;i<nbCaracteres;i++)
-     	     	{	
+     	     	{
 	        	cout << passWD[i];
              	}
 	     	cout << "\n";
 	     /*   cout << "  ]\n\nC'est le temps d'activer "
 		  	 << "mon keylogger...lol ;)\n";
 		  cout << "\n\nMerci d'avoir utiliser rndPassWD :)\n"
-		       << "Programmer par: Luc Paul Labont‚\n"
+		       << "Programmer par: Luc Paul LabontÃ©\n"
 		       << "CopyRight 2006  LPL.Corporation(c)2006\n\n\7";*/
     		} // fin du try
-	 
+
     	catch( char fuck )
     	{
-     		GESTION_ERREUR( fuck ); 	     
+     		GESTION_ERREUR( fuck );
     	}
-		
+
     }// fin j for
 
     	cout << "\n\nMerci d'avoir utiliser rndPassWD2 :)\n"
 	     << "Programmer par: Luc paul Labonte\n"
 	     << "CopyRight 2006-2010 LPL.Corporation(c)2006-2010\n\n";
-    return 0;    		   
+    return 0;
 }// fin de la procedure
 
 
 //********************************************************************
-// Nom de la procédure: GERER
-// Description        : Gérer les paramètres
-// Entrés             : nombreChar, Minuscules, Majuscules, 
+// Nom de la procÃ©dure: GERER
+// Description        : GÃ©rer les paramÃ¨tres
+// EntrÃ©s             : nombreChar, Minuscules, Majuscules,
 //                                              Chiffres, carASCII
 // Sorties            : none
 // Retour             : 0
 //********************************************************************
-int GERER( char *nombreChar[3], char *Minuscules[], char *Majuscules[], 
+int GERER( char *nombreChar[3], char *Minuscules[], char *Majuscules[],
            char *Chiffres[], char *carAscii[], char *loop[], char *Wait[] )
-{                                  
+{
      // Variables
      bool setMinuscule  = false;
      bool setMajuscule  = false;
      bool setChiffres   = false;
-     bool setCarAscii   = false;     
+     bool setCarAscii   = false;
      int  nbChar        = atoi( nombreChar[0] );
      int  nbLoop	= atoi( loop[0] );
      int  secWait	= atoi( Wait[0] );
-     
+
      cout << "Parametres entres: ";
      cout << *nombreChar << *Minuscules[0] << *Majuscules[0]
           << *Chiffres[0] << *carAscii[0] << "\n\n" ;
-    
+
      if( *Minuscules[0] != '-' )
      	   setMinuscule = true;
      if( *Majuscules[0] != '-' )
@@ -205,45 +205,45 @@ int GERER( char *nombreChar[3], char *Minuscules[], char *Majuscules[],
      	   setChiffres = true;
      if( *carAscii[0] != '-' )
      	   setCarAscii = true;
-     
+
      aleatoire( nbChar, setMajuscule, setMinuscule, setChiffres, setCarAscii, nbLoop, secWait );
-     
+
       return 0;
 }
 
 
 
 //********************************************************************
-// Nom de la procédure: main
-// Description        : Procédure principale
-// Entrés             : argc, argv
+// Nom de la procï¿½dure: main
+// Description        : ProcÃ©dure principale
+// EntrÃ©s             : argc, argv
 // Sorties            : none
 // Retour             : EXIT_SUCCESS
 //********************************************************************
 int main( int argc, char *argv[] )
 {
     char fuck = '\0';
-    
+
     try{
-    	  	 
+
 	    if( argc <= 7 )
-	    {   
+	    {
 	  	 GESTION_ERREUR( fuck );
 	  	 cout << endl << endl << "Exit 1: main:GESTION_ERREUR:argv <= 7, too few arguments!" << endl;
 	  	 system( "PAUSE" );
 	     exit( 1 );
 	    }
 	    else
-	    { 
+	    {
 	        GERER( &argv[1], &argv[2], &argv[3], &argv[4], &argv[5], &argv[6], &argv[7] );
 	    }
     }
     catch( char fuck )
-    {	
-    	     GESTION_ERREUR( fuck );	
+    {
+    	     GESTION_ERREUR( fuck );
     }
-    
+
     system("PAUSE");
-    
+
     return EXIT_SUCCESS;
 }
